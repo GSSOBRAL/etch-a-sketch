@@ -1,0 +1,21 @@
+body, html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: red;
+    height: 256px;
+    width: 256px;
+}
+
+.container div{
+    height: 16px;
+    width: 16px;
+    background-color: black;
+}
