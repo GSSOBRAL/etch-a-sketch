@@ -9,7 +9,8 @@ body{
 }
 
 .container{
-    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
     height: 256px;
     width: 256px;
 }
