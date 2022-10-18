@@ -9,6 +9,7 @@ body{
 }
 
 .container{
+    border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     height: 256px;
@@ -18,5 +19,8 @@ body{
 .container div{
     height: 16px;
     width: 16px;
+}
+
+.painted-div{
     background-color: black;
 }
