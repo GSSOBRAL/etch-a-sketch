@@ -4,17 +4,18 @@
 const container = document.querySelector(".container");
 const gridSizeButton = document.querySelector(".grid-size-btn");
 
+const gridWidth = container.clientWidth;
+
 createGrid();
 
 container.addEventListener("mouseover", paintDiv);
 gridSizeButton.addEventListener("click", chooseGridSize);
 
 function createGrid(){
-    const gridWidth = container.clientWidth;
-    let newDiv;
-
     for(let i = 0; i < gridWidth * 2; i++){
-        newDiv = document.createElement("div");
+        const newDiv = document.createElement("div");
+        newDiv.style.width = "16px";
+        newDiv.style.height = "16px";
         container.appendChild(newDiv);
     }
 }
@@ -25,5 +26,22 @@ function paintDiv(event){
 }
 
 function chooseGridSize(){
-    let newGridSize = +prompt("What size in pixels do you want your grid?");
+    const newGridSize = +prompt("What size in pixels do you want your grid?");
+
+    createNewGrid(newGridSize);
+}
+
+function createNewGrid(size){
+    //Determine the size of the divs, so they fit inside the grid
+    const divSize = gridWidth / size;
+    //Clear the grid
+    document.querySelectorAll(".container div").forEach(element => element.remove());
+
+    //Create new grid
+    for(let i = 0; i < (gridWidth/divSize) ** 2; i++){
+        const newDiv = document.createElement("div");
+        newDiv.style.width = `${divSize}px`;
+        newDiv.style.height = `${divSize}px`;
+        container.appendChild(newDiv);
+    }
 }
