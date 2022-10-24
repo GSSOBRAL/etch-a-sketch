@@ -4,6 +4,7 @@ body, html{
 
 body{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -12,13 +13,15 @@ body{
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
-    height: 256px;
-    width: 256px;
+    height: 512px;
+    width: 512px;
 }
 
 .container div{
     height: 16px;
     width: 16px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .painted-div{
