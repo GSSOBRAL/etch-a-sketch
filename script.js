@@ -4,7 +4,7 @@
 const container = document.querySelector(".container");
 const gridSizeButton = document.querySelector(".grid-size-btn");
 
-const gridWidth = container.clientWidth;
+const gridWidth = container.offsetWidth;
 
 createGrid();
 
@@ -34,11 +34,12 @@ function chooseGridSize(){
 function createNewGrid(size){
     //Determine the size of the divs, so they fit inside the grid
     const divSize = gridWidth / size;
+    console.log(divSize);
     //Clear the grid
     document.querySelectorAll(".container div").forEach(element => element.remove());
 
     //Create new grid
-    for(let i = 0; i < (gridWidth/divSize) ** 2; i++){
+    for(let i = 0; i < size ** 2; i++){
         const newDiv = document.createElement("div");
         newDiv.style.width = `${divSize}px`;
         newDiv.style.height = `${divSize}px`;
