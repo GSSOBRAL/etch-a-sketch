@@ -25,16 +25,8 @@ body{
     width: 512px;
 }
 
-.container div{
-
-}
-
 h1{
     margin: 50px 0;
-}
-
-.painted-div{
-    background-color: black;
 }
 
 .options{
