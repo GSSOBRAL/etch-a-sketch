@@ -1,5 +1,3 @@
-//I want to create a grid of 16x16px using javascript
-//when the mouse hovers over the divs, they change color to black
 let blackMode = true;
 let rainbowMode = false;
 
