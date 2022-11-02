@@ -5,9 +5,9 @@ let rainbowMode = false;
 
 const container = document.querySelector(".container");
 const gridSizeButton = document.querySelector(".grid-size-btn");
-//When I click black mode change background-color of class painted-div to black
 const blackModeButton = document.querySelector(".black-mode-btn");
 const rainbowModeButton = document.querySelector(".rainbow-mode-btn");
+const resetCanvasButton = document.querySelector(".reset-canvas-btn");
 
 const gridWidth = container.offsetWidth;
 
@@ -23,6 +23,7 @@ rainbowModeButton.addEventListener("click", () => {
     blackMode = false;
     rainbowMode = true;
 });
+resetCanvasButton.addEventListener("click", resetGrid);
 
 function createGrid(){
     for(let i = 0; i < gridWidth * 2; i++){
@@ -52,8 +53,14 @@ function paintDiv(event){
 }
 
 function chooseGridSize(){
-    const newGridSize = +prompt("What size in pixels do you want your grid?");
-
+    let newGridSize = +prompt("What size in pixels do you want your grid?");
+    if(newGridSize === 0){
+        return;
+    }
+    else if(newGridSize > 100 || newGridSize < 1){
+        newGridSize = +prompt("Choose a number between 1 and 100");
+        if (newGridSize === 0) return;
+    }
     createNewGrid(newGridSize);
 }
 
@@ -70,4 +77,8 @@ function createNewGrid(size){
         newDiv.style.height = `${divSize}px`;
         container.appendChild(newDiv);
     }
+}
+
+function resetGrid(){
+    document.querySelectorAll(".container div").forEach(element => element.style.backgroundColor = "white");
 }
